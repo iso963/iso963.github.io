@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>مرحبا بك</title>
+  <meta charset="UTF-8" />
+  <title>Random Arena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>الموقع شغال الآن 🎉</h1>
-  <p>تم تعديل ملف index.html بنجاح.</p>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span class="brand-text">Random Arena</span>
+      </div>
+      <p class="subtitle">Physics-inspired random name picker (no wheel).</p>
+    </header>
+
+    <main class="app-main">
+      <!-- Left side: Controls -->
+      <section class="control-panel">
+        <div class="panel glass">
+          <h2>Names</h2>
+          <div class="name-input-row">
+            <input
+              id="nameInput"
+              type="text"
+              placeholder="Type a name and press Add"
+            />
+            <button id="addNameBtn" class="btn primary">Add</button>
+          </div>
+
+          <div class="hint">
+            Tip: Press Enter to add. Double-click a name to edit.
+          </div>
+
+          <ul id="nameList" class="name-list">
+            <!-- Dynamic list of names -->
+          </ul>
+
+          <div class="list-actions">
+            <button id="clearListBtn" class="btn ghost">Clear all</button>
+            <button id="shuffleListBtn" class="btn ghost">Shuffle</button>
+          </div>
+        </div>
+
+        <div class="panel glass">
+          <h2>Mode</h2>
+          <div class="mode-buttons">
+            <button
+              class="btn mode-btn active"
+              data-mode="floating"
+              id="modeFloating"
+            >
+              Floating Cards
+            </button>
+            <button
+              class="btn mode-btn"
+              data-mode="hex"
+              id="modeHex"
+            >
+              Hexagon Arena
+            </button>
+            <button
+              class="btn mode-btn"
+              data-mode="roulette"
+              id="modeRoulette"
+            >
+              Vertical Roulette
+            </button>
+          </div>
+
+          <div class="controls-row">
+            <button id="randomizeBtn" class="btn accent">
+              Start Random Arena
+            </button>
+          </div>
+
+          <div class="note">
+            For best suspense, add at least 3 names.
+          </div>
+        </div>
+      </section>
+
+      <!-- Right side: Arena -->
+      <section class="arena-panel">
+        <div class="panel glass arena-wrapper">
+          <h2 id="arenaTitle">Floating Cards Arena</h2>
+
+          <!-- Arena container where we draw names according to mode -->
+          <div id="arena" class="arena floating-mode">
+            <!-- Populated dynamically by JavaScript -->
+          </div>
+
+          <div id="winnerBanner" class="winner-banner hidden">
+            <span class="winner-label">Selected:</span>
+            <span id="winnerName" class="winner-name"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Built with vanilla JS • Dark mode • Neon / glassmorphism</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
